@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 from posts.models import Comment, Group, Post, Follow
-from rest_framework import permissions, status, viewsets, filters, mixins
+from rest_framework import status, viewsets, filters, mixins
 from rest_framework.response import Response
 
 from .permissions import IsAuthorOrReadOnly, ReadOnly
