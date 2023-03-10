@@ -21,7 +21,6 @@ class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [
-        permissions.IsAuthenticated,
         IsAuthorOrReadOnly
     ]
     pagination_class = LimitOffsetPagination
@@ -39,7 +38,6 @@ class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [
-        permissions.IsAuthenticated,
         ReadOnly
     ]
 
@@ -51,7 +49,6 @@ class CommentViewSet(viewsets.ModelViewSet):
         permissions.IsAuthenticated,
         IsAuthorOrReadOnly
     ]
-    pagination_class = LimitOffsetPagination
 
     def get_queryset(self):
         post = get_object_or_404(Post, pk=self.kwargs.get('post_id'))
