@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from rest_framework.relations import SlugRelatedField
+from rest_framework.relations import PrimaryKeyRelatedField, SlugRelatedField
 from rest_framework.validators import UniqueTogetherValidator
 
 
@@ -25,6 +25,7 @@ class CommentSerializer(serializers.ModelSerializer):
         read_only=True,
         slug_field='username'
     )
+    post = PrimaryKeyRelatedField(many=False, read_only=True)
 
     class Meta:
         fields = ('id', 'author', 'post', 'text', 'created')
