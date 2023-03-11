@@ -20,4 +20,4 @@ class ReadOnly(permissions.BasePermission):
     def has_permission(self, request, view):
         if request.method in permissions.SAFE_METHODS:
             return True
-        return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+        # return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
