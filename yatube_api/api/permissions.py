@@ -1,5 +1,6 @@
-from rest_framework import permissions, status
-from rest_framework.response import Response
+from rest_framework import permissions
+# , status
+# from rest_framework.response import Response
 
 
 class IsAuthorOrReadOnly(permissions.BasePermission):
@@ -18,6 +19,7 @@ class IsAuthorOrReadOnly(permissions.BasePermission):
 class ReadOnly(permissions.BasePermission):
 
     def has_permission(self, request, view):
-        if request.method in permissions.SAFE_METHODS:
-            return True
+        # if request.method in permissions.SAFE_METHODS:
+        #     return True
         # return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+        return request.method in permissions.SAFE_METHODS
